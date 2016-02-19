@@ -294,7 +294,7 @@ def load_data(dataset):
                                                dtype=theano.config.floatX),
                                  borrow=borrow)
         shared_y = theano.shared(numpy.asarray(data_y,
-                                               dtype=theano.config.floatX),
+                                               dtype=theano.config.int_division),
                                  borrow=borrow)
         # When storing data on the GPU it has to be stored as floats
         # therefore we will store the labels as ``floatX`` as well
@@ -303,17 +303,17 @@ def load_data(dataset):
         # floats it doesn't make sense) therefore instead of returning
         # ``shared_y`` we will have to cast it to int. This little hack
         # lets ous get around this issue
-        return shared_x, shared_y
+        return shared_x, T.cast(shared_y, 'int32')
 
     test_set_x, test_set_y = shared_dataset(test_dataset, test_labels_matrix)
     print(test_set_x.get_value().shape)
-    print(test_set_y.get_value().shape)
+    print(test_set_y.eval().shape)
     valid_set_x, valid_set_y = shared_dataset(valid_dataset, valid_labels_matrix)
     print(valid_set_x.get_value().shape)
-    print(valid_set_y.get_value().shape)
+    print(valid_set_y.eval().shape)
     train_set_x, train_set_y = shared_dataset(train_dataset, train_labels_matrix)
     print(train_set_x.get_value().shape)
-    print(train_set_y.get_value().shape)
+    print(train_set_y.eval().shape)
     rval = [(train_set_x, train_set_y), (valid_set_x, valid_set_y),
             (test_set_x, test_set_y)]
     return rval

@@ -1,0 +1,90 @@
+(10000, 784)
+(10000,)
+(10000, 784)
+(10000,)
+(200000, 784)
+(200000,)
+building the model
+1
+getting the pretraining functions
+pre-training the model
+Pre-training layer 0, epoch 0, cost 151.255824
+Pre-training layer 0, epoch 1, cost 139.058167
+Pre-training layer 0, epoch 2, cost 135.984372
+Pre-training layer 0, epoch 3, cost 134.103606
+Pre-training layer 0, epoch 4, cost 132.787858
+Pre-training layer 0, epoch 5, cost 131.785687
+Pre-training layer 0, epoch 6, cost 131.106297
+Pre-training layer 0, epoch 7, cost 130.547329
+Pre-training layer 0, epoch 8, cost 130.087275
+Pre-training layer 0, epoch 9, cost 129.711336
+Pre-training layer 0, epoch 10, cost 129.391292
+Pre-training layer 0, epoch 11, cost 129.110659
+Pre-training layer 0, epoch 12, cost 128.889840
+Pre-training layer 0, epoch 13, cost 128.704917
+Pre-training layer 0, epoch 14, cost 128.563978
+getting the finetuning functions
+finetunning the model
+epoch 1, minibatch 10000/10000, validation error 14.780000 %
+     epoch 1, minibatch 10000/10000, test error of best model 8.270000 %
+epoch 2, minibatch 10000/10000, validation error 13.360000 %
+     epoch 2, minibatch 10000/10000, test error of best model 7.050000 %
+epoch 3, minibatch 10000/10000, validation error 12.430000 %
+     epoch 3, minibatch 10000/10000, test error of best model 6.470000 %
+epoch 4, minibatch 10000/10000, validation error 11.950000 %
+     epoch 4, minibatch 10000/10000, test error of best model 6.190000 %
+epoch 5, minibatch 10000/10000, validation error 11.480000 %
+     epoch 5, minibatch 10000/10000, test error of best model 5.940000 %
+epoch 6, minibatch 10000/10000, validation error 11.230000 %
+     epoch 6, minibatch 10000/10000, test error of best model 5.720000 %
+epoch 7, minibatch 10000/10000, validation error 10.950000 %
+     epoch 7, minibatch 10000/10000, test error of best model 5.510000 %
+epoch 8, minibatch 10000/10000, validation error 10.780000 %
+     epoch 8, minibatch 10000/10000, test error of best model 5.420000 %
+epoch 9, minibatch 10000/10000, validation error 10.660000 %
+     epoch 9, minibatch 10000/10000, test error of best model 5.340000 %
+epoch 10, minibatch 10000/10000, validation error 10.500000 %
+     epoch 10, minibatch 10000/10000, test error of best model 5.240000 %
+epoch 11, minibatch 10000/10000, validation error 10.430000 %
+     epoch 11, minibatch 10000/10000, test error of best model 5.180000 %
+epoch 12, minibatch 10000/10000, validation error 10.390000 %
+     epoch 12, minibatch 10000/10000, test error of best model 5.190000 %
+epoch 13, minibatch 10000/10000, validation error 10.320000 %
+     epoch 13, minibatch 10000/10000, test error of best model 5.210000 %
+epoch 14, minibatch 10000/10000, validation error 10.210000 %
+     epoch 14, minibatch 10000/10000, test error of best model 5.210000 %
+epoch 15, minibatch 10000/10000, validation error 10.200000 %
+     epoch 15, minibatch 10000/10000, test error of best model 5.230000 %
+epoch 16, minibatch 10000/10000, validation error 10.160000 %
+     epoch 16, minibatch 10000/10000, test error of best model 5.160000 %
+epoch 17, minibatch 10000/10000, validation error 10.140000 %
+     epoch 17, minibatch 10000/10000, test error of best model 5.190000 %
+epoch 18, minibatch 10000/10000, validation error 10.150000 %
+epoch 19, minibatch 10000/10000, validation error 10.150000 %
+epoch 20, minibatch 10000/10000, validation error 10.150000 %
+epoch 21, minibatch 10000/10000, validation error 10.150000 %
+epoch 22, minibatch 10000/10000, validation error 10.070000 %
+     epoch 22, minibatch 10000/10000, test error of best model 5.150000 %
+epoch 23, minibatch 10000/10000, validation error 10.090000 %
+epoch 24, minibatch 10000/10000, validation error 10.170000 %
+epoch 25, minibatch 10000/10000, validation error 10.160000 %
+epoch 26, minibatch 10000/10000, validation error 10.130000 %
+epoch 27, minibatch 10000/10000, validation error 10.100000 %
+epoch 28, minibatch 10000/10000, validation error 10.120000 %
+epoch 29, minibatch 10000/10000, validation error 10.170000 %
+epoch 30, minibatch 10000/10000, validation error 10.210000 %
+epoch 31, minibatch 10000/10000, validation error 10.260000 %
+epoch 32, minibatch 10000/10000, validation error 10.250000 %
+epoch 33, minibatch 10000/10000, validation error 10.290000 %
+epoch 34, minibatch 10000/10000, validation error 10.270000 %
+epoch 35, minibatch 10000/10000, validation error 10.200000 %
+epoch 36, minibatch 10000/10000, validation error 10.260000 %
+epoch 37, minibatch 10000/10000, validation error 10.240000 %
+epoch 38, minibatch 10000/10000, validation error 10.280000 %
+epoch 39, minibatch 10000/10000, validation error 10.280000 %
+epoch 40, minibatch 10000/10000, validation error 10.340000 %
+epoch 41, minibatch 10000/10000, validation error 10.310000 %
+epoch 42, minibatch 10000/10000, validation error 10.260000 %
+epoch 43, minibatch 10000/10000, validation error 10.220000 %
+Optimization complete with best validation score of 10.070000 %, on iteration 220000, with test performance 5.150000 %The pretraining code for file SdA.py ran for 7.27m
+The training code for file SdA.py ran for 4.97m

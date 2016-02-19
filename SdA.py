@@ -41,6 +41,7 @@ import numpy
 import theano
 import theano.tensor as T
 from theano.tensor.shared_randomstreams import RandomStreams
+from theano.compile.io import In
 
 from logistic_sgd import LogisticRegression, load_data
 from mlp import HiddenLayer
@@ -64,9 +65,9 @@ class SdA(object):
         numpy_rng,
         theano_rng=None,
         n_ins=784,
-        hidden_layers_sizes=[500, 500],
+        hidden_layers_sizes=[500],
         n_outs=10,
-        corruption_levels=[0.1, 0.1]
+        corruption_levels=[0.2]
     ):
         """ This class is made to support a variable number of layers.
 
@@ -97,6 +98,7 @@ class SdA(object):
         self.dA_layers = []
         self.params = []
         self.n_layers = len(hidden_layers_sizes)
+        print(self.n_layers)
 
         assert self.n_layers > 0
 
@@ -215,11 +217,7 @@ class SdA(object):
                                                 learning_rate)
             # compile the theano function
             fn = theano.function(
-                inputs=[
-                    index,
-                    theano.In(corruption_level, value=0.2),
-                    theano.In(learning_rate, value=0.1)
-                ],
+                inputs=[index, corruption_level, learning_rate],
                 outputs=cost,
                 updates=updates,
                 givens={
@@ -273,7 +271,7 @@ class SdA(object):
         ]
 
         train_fn = theano.function(
-            inputs=[index],
+            [index],
             outputs=self.finetune_cost,
             updates=updates,
             givens={
@@ -328,7 +326,7 @@ class SdA(object):
 
 def test_SdA(finetune_lr=0.1, pretraining_epochs=15,
              pretrain_lr=0.001, training_epochs=1000,
-             dataset='mnist.pkl.gz', batch_size=1):
+             dataset='mnist.pkl.gz', batch_size=20):
     """
     Demonstrates how to train and test a stochastic denoising autoencoder.
 
@@ -370,7 +368,7 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=15,
     sda = SdA(
         numpy_rng=numpy_rng,
         n_ins=28 * 28,
-        hidden_layers_sizes=[1000, 1000, 1000],
+        hidden_layers_sizes=[500],
         n_outs=10
     )
     # end-snippet-3 start-snippet-4
@@ -384,7 +382,7 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=15,
     print('... pre-training the model')
     start_time = timeit.default_timer()
     ## Pre-train layer-wise
-    corruption_levels = [.1, .2, .3]
+    corruption_levels = [0.2]
     for i in range(sda.n_layers):
         # go through pretraining epochs
         for epoch in range(pretraining_epochs):
@@ -392,8 +390,8 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=15,
             c = []
             for batch_index in range(n_train_batches):
                 c.append(pretraining_fns[i](index=batch_index,
-                         corruption=corruption_levels[i],
-                         lr=pretrain_lr))
+                         corruption=0.2,
+                         lr=0.1))
             print('Pre-training layer %i, epoch %d, cost %f' % (i, epoch, numpy.mean(c)))
 
     end_time = timeit.default_timer()
